@@ -2,21 +2,20 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void StartBtn_Clicked(object sender, EventArgs e)
+        private async void StartBtn_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new HomePage());
         }
 
-        private void AboutBtn_Clicked(object sender, EventArgs e)
+        private async void AboutBtn_Clicked(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new About());
         }
     }
 
