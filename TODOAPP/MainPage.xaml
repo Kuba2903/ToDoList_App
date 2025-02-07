@@ -19,7 +19,7 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25"
-            BackgroundColor="LightYellow">
+            >
 
             <Label
                 Text="To do app"

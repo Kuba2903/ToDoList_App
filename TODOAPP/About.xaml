@@ -3,10 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TODOAPP.About"
              Title="About">
-    <VerticalStackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontSize" Value="20"/>
+            </Style>
+            <Style TargetType="BoxView">
+                <Setter Property="WidthRequest" Value="10"/>
+                <Setter Property="HeightRequest" Value="10"/>
+                <Setter Property="Color" Value="Black"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <VerticalStackLayout Spacing="10" Padding="20">
         <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            Text="TODO Application description"
+            FontSize="44"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            VerticalOptions="Start" />
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
+            <BoxView />
+            <Label Text="Add new tasks by entering a title and description."/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
+            <BoxView />
+            <Label Text="Tasks automatically appear on the list."/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
+            <BoxView />
+            <Label Text="Mark tasks as 'completed' with a button click."/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
+            <BoxView/>
+            <Label Text="Delete tasks from the list when finished." />
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
+            <BoxView/>
+            <Label Text="Task list is saved locally to persist data."/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
