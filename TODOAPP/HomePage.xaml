@@ -8,5 +8,11 @@
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Button Text="Create TODO"
+                x:Name="CreateBtn"
+                HorizontalOptions="Fill"
+                SemanticProperties.Hint="Creates new TODO"
+                Clicked="CreateBtn_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
