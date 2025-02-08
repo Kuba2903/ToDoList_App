@@ -10,7 +10,7 @@
 
         private async void StartBtn_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new HomePage());
+            await Navigation.PushAsync(new HomePage(new ViewModels.ToDoViewModel()));
         }
 
         private async void AboutBtn_Clicked(object sender, EventArgs e)
