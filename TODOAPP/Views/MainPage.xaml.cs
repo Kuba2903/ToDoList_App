@@ -17,6 +17,18 @@
         {
             await Navigation.PushAsync(new About());
         }
+
+        private void OnPointerEntered(object sender, PointerEventArgs e)
+        {
+            var button = sender as Button;
+            button.BackgroundColor = Color.FromArgb("#93d1e6");
+        }
+
+        private void OnPointerExited(object sender, PointerEventArgs e)
+        {
+            var button = sender as Button;
+            button.BackgroundColor = Color.FromArgb("#ADD8E6");
+        }
     }
 
 }

@@ -36,20 +36,31 @@
 
 
             <HorizontalStackLayout Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">
-                <Button
+                    <Button
                     x:Name="StartBtn"
                     Text="Start" 
                     SemanticProperties.Hint="Starts the application"
                     Clicked="StartBtn_Clicked"
                     HorizontalOptions="Fill"
-                    />
+                    >
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnPointerEntered"
+                                                  PointerExited="OnPointerExited"/>
+                    </Button.GestureRecognizers>
+                    </Button>
 
                 <Button
                     x:Name="AboutBtn"
                     Text="About" 
                     SemanticProperties.Hint="Explains how the app work"
                     Clicked="AboutBtn_Clicked"
-                    HorizontalOptions="Fill"/>
+                    HorizontalOptions="Fill"
+                 >
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnPointerEntered"
+                          PointerExited="OnPointerExited"/>
+                    </Button.GestureRecognizers>
+                </Button>
             </HorizontalStackLayout>
         </VerticalStackLayout>
         

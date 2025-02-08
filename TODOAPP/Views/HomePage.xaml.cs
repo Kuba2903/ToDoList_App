@@ -29,4 +29,29 @@ public partial class HomePage : ContentPage
 
         viewModel.RemoveTodo(todoItem);
     }
+
+
+    private void OnDeletePointerEntered(object sender, PointerEventArgs e)
+    {
+        var button = sender as Button;
+        button.BackgroundColor = Color.FromArgb("#cf0c19");
+    }
+
+    private void OnDeletePointerExited(object sender, PointerEventArgs e)
+    {
+        var button = sender as Button;
+        button.BackgroundColor = Color.FromArgb("#f51423");
+    }
+
+    private void OnAddPointerEntered(object sender, PointerEventArgs e) 
+    {
+        var button = sender as Button;
+        button.BackgroundColor = Color.FromArgb("#02c70f");
+    }
+
+    private void OnAddPointerExited(object sender, PointerEventArgs e)
+    {
+        var button = sender as Button;
+        button.BackgroundColor = Color.FromArgb("#72f763");
+    }
 }

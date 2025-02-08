@@ -22,7 +22,12 @@
                             <Label Text="{Binding Importance}" FontSize="12" TextColor="Red" />
                             <CheckBox IsChecked="{Binding IsDone}"/>
                             <Button Text="Delete" Clicked="DeleteBtn_Clicked" HorizontalOptions="Fill"
-                                    BackgroundColor="Red" CommandParameter="{Binding .}"/>
+                                    BackgroundColor="#f51423" CommandParameter="{Binding .}">
+                                <Button.GestureRecognizers>
+                                    <PointerGestureRecognizer PointerEntered="OnDeletePointerEntered"
+                                                              PointerExited="OnDeletePointerExited"/>
+                                </Button.GestureRecognizers>
+                            </Button>
                         </VerticalStackLayout>
                     </Frame>
                     
@@ -30,7 +35,14 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-        <Button Text="Add New Task" Clicked="CreateBtn_Clicked" HorizontalOptions="Fill"/>
+        <Button Text="Add New Task" Clicked="CreateBtn_Clicked" HorizontalOptions="Fill"
+                BackgroundColor="#72f763">
+            <Button.GestureRecognizers>
+                <PointerGestureRecognizer PointerEntered="OnAddPointerEntered"
+                                          PointerExited="OnAddPointerExited"/>
+            </Button.GestureRecognizers>
+            
+        </Button>
 
     </VerticalStackLayout>
 </ContentPage>

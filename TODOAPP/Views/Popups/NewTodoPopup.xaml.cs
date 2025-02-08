@@ -34,4 +34,28 @@ public partial class NewTodoPopup : Popup
     {
         Close();
     }
+
+    private void OnSavePointerEntered(object sender, PointerEventArgs e) //change color on hover
+    {
+        var button = sender as Button;
+        button.BackgroundColor = Color.FromArgb("#02c70f");
+    }
+
+    private void OnSavePointerExited(object sender, PointerEventArgs e) //change color back from hover
+    {
+        var button = sender as Button;
+        button.BackgroundColor = Color.FromArgb("#72f763");
+    }
+
+    private void OnCancelPointerEntered(object sender, PointerEventArgs e)
+    {
+        var button = sender as Button;
+        button.BackgroundColor = Color.FromArgb("#c4101c");
+    }
+
+    private void OnCancelPointerExited(object sender, PointerEventArgs e) 
+    {
+        var button = sender as Button;
+        button.BackgroundColor = Color.FromArgb("#fc584c");
+    }
 }
