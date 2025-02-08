@@ -11,7 +11,8 @@ public partial class HomePage : ContentPage
 	{
 		InitializeComponent();
 		BindingContext = _viewModel = viewModel;
-	}
+        _viewModel.LoadTodos();
+    }
 
     private async void CreateBtn_Clicked(object sender, EventArgs e)
     {

@@ -27,6 +27,7 @@ public partial class NewTodoPopup : Popup
         };
 
         _viewModel.AddTodo(newTodo);
+        _viewModel.SaveTodos();
         Close();
     }
     private void CancelTODOClicked(object sender, EventArgs e)
