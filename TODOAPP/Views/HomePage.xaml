@@ -17,12 +17,16 @@
                 <DataTemplate>
                     <Frame BorderColor="Gray" Padding="10" Margin="5">
                         <VerticalStackLayout>
-                            <Label Text="{Binding Title}" FontAttributes="Bold" />
-                            <Label Text="{Binding Description}" FontSize="12" />
-                            <Label Text="{Binding Importance}" FontSize="12" TextColor="Red" />
-                            <CheckBox IsChecked="{Binding IsDone}"/>
+                            <Label Text="{Binding Title}" FontAttributes="Bold" HorizontalOptions="Center" />
+                            <Label Text="{Binding Description}" LineBreakMode="TailTruncation"
+                                   FontSize="12" MaxLines="2"/>
+                            <Label Text="{Binding Importance, StringFormat='Priority: {0}'}" FontSize="12" TextColor="Red" />
+                            <HorizontalStackLayout Spacing="5" HorizontalOptions="End">
+                                <Label Text="Mark task as done" FontSize="10" VerticalOptions="Center"/>
+                                <CheckBox IsChecked="{Binding IsDone}"/>
+                            </HorizontalStackLayout>
                             <Button Text="Delete" Clicked="DeleteBtn_Clicked" HorizontalOptions="Fill"
-                                    BackgroundColor="#f51423" CommandParameter="{Binding .}">
+                                    BackgroundColor="#f51423" CommandParameter="{Binding .}" HeightRequest="50">
                                 <Button.GestureRecognizers>
                                     <PointerGestureRecognizer PointerEntered="OnDeletePointerEntered"
                                                               PointerExited="OnDeletePointerExited"/>
