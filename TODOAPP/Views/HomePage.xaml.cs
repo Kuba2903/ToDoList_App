@@ -1,4 +1,5 @@
 using CommunityToolkit.Maui.Views;
+using TODOAPP.Models;
 using TODOAPP.ViewModels;
 
 namespace TODOAPP;
@@ -16,5 +17,15 @@ public partial class HomePage : ContentPage
     {
 		var popup = new NewTodoPopup(_viewModel);
 		await this.ShowPopupAsync(popup);
+    }
+
+    private void DeleteBtn_Clicked(object sender, EventArgs e)
+    {
+        var button = (Button)sender;
+        var todoItem = (ToDoItem)button.CommandParameter;
+
+        var viewModel = (ToDoViewModel)BindingContext;
+
+        viewModel.RemoveTodo(todoItem);
     }
 }

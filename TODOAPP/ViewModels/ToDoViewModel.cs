@@ -21,5 +21,8 @@ namespace TODOAPP.ViewModels
                 _todoList.Add(todo);
             }
         }
+
+
+        public void RemoveTodo(ToDoItem todo) => _todoList.Remove(todo);
     }
 }

@@ -20,8 +20,12 @@
                             <Label Text="{Binding Title}" FontAttributes="Bold" />
                             <Label Text="{Binding Description}" FontSize="12" />
                             <Label Text="{Binding Importance}" FontSize="12" TextColor="Red" />
+                            <CheckBox IsChecked="{Binding IsDone}"/>
+                            <Button Text="Delete" Clicked="DeleteBtn_Clicked" HorizontalOptions="Fill"
+                                    BackgroundColor="Red" CommandParameter="{Binding .}"/>
                         </VerticalStackLayout>
                     </Frame>
+                    
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
