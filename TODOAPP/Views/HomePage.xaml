@@ -28,13 +28,22 @@
                                 <CheckBox IsChecked="{Binding IsDone}" Color="Green"
                                           CheckedChanged="CheckBox_CheckedChanged"/>
                             </HorizontalStackLayout>
-                            <Button Text="Delete" Clicked="DeleteBtn_Clicked" HorizontalOptions="Fill"
-                                    BackgroundColor="#f51423" CommandParameter="{Binding .}" HeightRequest="50">
-                                <Button.GestureRecognizers>
-                                    <PointerGestureRecognizer PointerEntered="OnDeletePointerEntered"
-                                                              PointerExited="OnDeletePointerExited"/>
-                                </Button.GestureRecognizers>
-                            </Button>
+                            <HorizontalStackLayout Spacing="10" HorizontalOptions="CenterAndExpand">
+                                <Button Text="Delete" Clicked="DeleteBtn_Clicked" WidthRequest="100"
+                                        BackgroundColor="#f51423" CommandParameter="{Binding .}" HeightRequest="50">
+                                    <Button.GestureRecognizers>
+                                        <PointerGestureRecognizer PointerEntered="OnDeletePointerEntered"
+                                                                  PointerExited="OnDeletePointerExited"/>
+                                    </Button.GestureRecognizers>
+                                </Button>
+                                <Button Text="Edit" Clicked="EditBtn_Clicked" HeightRequest="50" WidthRequest="100"
+                                        CommandParameter="{Binding .}" BackgroundColor="#72f763">
+                                    <Button.GestureRecognizers>
+                                        <PointerGestureRecognizer PointerEntered="OnAdd_EditPointerEntered"
+                                                        PointerExited="OnAdd_EditPointerExited"/>
+                                    </Button.GestureRecognizers>
+                                </Button>
+                            </HorizontalStackLayout>
                         </VerticalStackLayout>
                     </Frame>
                     
@@ -45,8 +54,8 @@
         <Button Text="Add New Task" Clicked="CreateBtn_Clicked" HorizontalOptions="Fill"
                 BackgroundColor="#72f763">
             <Button.GestureRecognizers>
-                <PointerGestureRecognizer PointerEntered="OnAddPointerEntered"
-                                          PointerExited="OnAddPointerExited"/>
+                <PointerGestureRecognizer PointerEntered="OnAdd_EditPointerEntered"
+                                          PointerExited="OnAdd_EditPointerExited"/>
             </Button.GestureRecognizers>
             
         </Button>

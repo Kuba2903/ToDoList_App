@@ -8,26 +8,62 @@ public partial class NewTodoPopup : Popup
 {
     private readonly ToDoViewModel _viewModel;
 
+    private ToDoItem _editingItem;
     public NewTodoPopup(ToDoViewModel viewModel)
 	{
 		InitializeComponent();
         _viewModel = viewModel;
 	}
 
+    public NewTodoPopup(ToDoItem item, ToDoViewModel viewModel)
+    {
+        InitializeComponent();
+        _viewModel = viewModel;
+        //setting the forms inputs from editing model
+        _editingItem = item;
+        TaskTitle.Text = item.Title;
+        TaskDescription.Text = item.Description;
+
+        switch (item.Importance)
+        {
+            case "High":
+                HighRadioButton.IsChecked = true;
+                break;
+            case "Medium":
+                MediumRadioButton.IsChecked = true;
+                break;
+            case "Low":
+                LowRadioButton.IsChecked = true;
+                break;
+        }
+    }
+
     private void SaveTODOClicked(object sender, EventArgs e)
     {
         string importance = HighRadioButton.IsChecked ? "High" :
                             MediumRadioButton.IsChecked ? "Medium" : "Low";
 
-        var newTodo = new ToDoItem
+        //editing mode
+        if (_editingItem != null)
         {
-            Title = TaskTitle.Text,
-            Description = TaskDescription.Text,
-            Importance = importance
-        };
+            _editingItem.Title = TaskTitle.Text;
+            _editingItem.Description = TaskDescription.Text;
+            _editingItem.Importance = importance;
+        }
+        //adding new TODO mode
+        else
+        {
+            var newTodo = new ToDoItem
+            {
+                Title = TaskTitle.Text,
+                Description = TaskDescription.Text,
+                Importance = importance
+            };
 
-        _viewModel.AddTodo(newTodo);
+            _viewModel.AddTodo(newTodo);
+        }
         _viewModel.SaveTodos();
+        
         Close();
     }
     private void CancelTODOClicked(object sender, EventArgs e)

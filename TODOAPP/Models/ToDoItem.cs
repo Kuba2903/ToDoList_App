@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,18 @@ using System.Threading.Tasks;
 
 namespace TODOAPP.Models
 {
-    public class ToDoItem
+    public partial class ToDoItem : ObservableObject
     {
-        public string Title { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
-        public string Importance { get; set; } = string.Empty;
-        public bool IsDone { get; set; } = false;
+        [ObservableProperty]
+        private string title;
+
+        [ObservableProperty]
+        private string description;
+
+        [ObservableProperty]
+        private string importance;
+
+        [ObservableProperty]
+        private bool isDone;
     }
 }
