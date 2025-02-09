@@ -6,7 +6,7 @@
              Color="LightYellow"
               >
 
-    <VerticalStackLayout Padding="20" BackgroundColor="White" HeightRequest="500" WidthRequest="400">
+    <VerticalStackLayout Padding="20" BackgroundColor="White" HeightRequest="550" WidthRequest="400">
         <Label Text="Task title" HorizontalOptions="Center" FontSize="30" />
         <Label x:Name="ErrorLabel"
            Text=""
@@ -30,6 +30,9 @@
             <RadioButton GroupName="ImportanceGroup" Content="Medium" x:Name="MediumRadioButton" />
             <RadioButton GroupName="ImportanceGroup" Content="Low" x:Name="LowRadioButton" />
         </StackLayout>
+        <Picker x:Name="CategoryPicker"
+        Title="Select Category"
+        ItemsSource="{Binding Categories}" />
 
         <HorizontalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
             <Button x:Name="SaveTODO" 

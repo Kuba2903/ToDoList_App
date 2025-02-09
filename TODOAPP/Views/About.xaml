@@ -48,6 +48,11 @@
 
         <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
             <BoxView/>
+            <Label Text="Edit the task from the list if needed."/>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Start">
+            <BoxView/>
             <Label Text="Task list is saved locally to persist data."/>
         </HorizontalStackLayout>
     </VerticalStackLayout>

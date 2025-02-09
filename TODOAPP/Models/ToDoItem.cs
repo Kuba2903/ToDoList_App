@@ -20,5 +20,8 @@ namespace TODOAPP.Models
 
         [ObservableProperty]
         private bool isDone;
+
+        [ObservableProperty]
+        private string? category;
     }
 }

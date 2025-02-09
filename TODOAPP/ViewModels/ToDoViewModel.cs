@@ -15,6 +15,11 @@ namespace TODOAPP.ViewModels
         [ObservableProperty]
         private ObservableCollection<ToDoItem> _todoList = new();
 
+        public ObservableCollection<string> Categories { get; } = new ObservableCollection<string>
+        {
+            "Work", "Personal", "Home", "Study", "Shopping", "Other"
+        };
+
         private const string TodoListKey = "TodoList";
         public void AddTodo(ToDoItem todo)
         {
