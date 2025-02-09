@@ -40,6 +40,16 @@ public partial class NewTodoPopup : Popup
 
     private void SaveTODOClicked(object sender, EventArgs e)
     {
+        //if the title is not entered, then display an error
+        if (string.IsNullOrWhiteSpace(TaskTitle.Text))
+        {
+            ErrorLabel.Text = "Title cannot be empty!";
+            ErrorLabel.IsVisible = true;
+            return;
+        }
+        ErrorLabel.IsVisible = false;
+
+
         string importance = HighRadioButton.IsChecked ? "High" :
                             MediumRadioButton.IsChecked ? "Medium" : "Low";
 
