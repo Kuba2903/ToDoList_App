@@ -53,12 +53,16 @@ public partial class NewTodoPopup : Popup
         string importance = HighRadioButton.IsChecked ? "High" :
                             MediumRadioButton.IsChecked ? "Medium" : "Low";
 
+        string? selectedCategory = CategoryPicker.SelectedItem?.ToString();
+
+
         //editing mode
         if (_editingItem != null)
         {
             _editingItem.Title = TaskTitle.Text;
             _editingItem.Description = TaskDescription.Text;
             _editingItem.Importance = importance;
+            _editingItem.Category = selectedCategory;
         }
         //adding new TODO mode
         else
@@ -67,7 +71,8 @@ public partial class NewTodoPopup : Popup
             {
                 Title = TaskTitle.Text,
                 Description = TaskDescription.Text,
-                Importance = importance
+                Importance = importance,
+                Category = selectedCategory
             };
 
             _viewModel.AddTodo(newTodo);
