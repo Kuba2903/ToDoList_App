@@ -18,12 +18,15 @@
                     <Frame BorderColor="Gray" Padding="10" Margin="5">
                         <VerticalStackLayout>
                             <Label Text="{Binding Title}" FontAttributes="Bold" HorizontalOptions="Center" />
-                            <Label Text="{Binding Description}" LineBreakMode="TailTruncation"
-                                   FontSize="12" MaxLines="2"/>
+                            <ScrollView HeightRequest="60">
+                                <Label Text="{Binding Description}" LineBreakMode="WordWrap"
+                                   FontSize="12"/>
+                            </ScrollView>
                             <Label Text="{Binding Importance, StringFormat='Priority: {0}'}" FontSize="12" TextColor="Red" />
                             <HorizontalStackLayout Spacing="5" HorizontalOptions="End">
                                 <Label Text="Mark task as done" FontSize="10" VerticalOptions="Center"/>
-                                <CheckBox IsChecked="{Binding IsDone}"/>
+                                <CheckBox IsChecked="{Binding IsDone}" Color="Green"
+                                          CheckedChanged="CheckBox_CheckedChanged"/>
                             </HorizontalStackLayout>
                             <Button Text="Delete" Clicked="DeleteBtn_Clicked" HorizontalOptions="Fill"
                                     BackgroundColor="#f51423" CommandParameter="{Binding .}" HeightRequest="50">

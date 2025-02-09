@@ -28,6 +28,7 @@ public partial class HomePage : ContentPage
         var viewModel = (ToDoViewModel)BindingContext;
 
         viewModel.RemoveTodo(todoItem);
+        viewModel.SaveTodos();
     }
 
 
@@ -53,5 +54,10 @@ public partial class HomePage : ContentPage
     {
         var button = sender as Button;
         button.BackgroundColor = Color.FromArgb("#72f763");
+    }
+
+    private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        _viewModel.SaveTodos();
     }
 }
