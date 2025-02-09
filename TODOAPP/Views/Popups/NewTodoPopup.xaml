@@ -5,9 +5,15 @@
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Color="LightYellow"
               >
-    
+
     <VerticalStackLayout Padding="20" BackgroundColor="White" HeightRequest="500" WidthRequest="400">
         <Label Text="Task title" HorizontalOptions="Center" FontSize="30" />
+        <Label x:Name="ErrorLabel"
+           Text=""
+           TextColor="Red"
+           FontSize="14"
+           IsVisible="False"
+           HorizontalOptions="Center"/>
         <Entry x:Name="TaskTitle"
                Placeholder="Enter task title"
                HorizontalOptions="Fill"
@@ -32,14 +38,25 @@
                     HorizontalOptions="Fill"
                     SemanticProperties.Hint="Saves TODO"
                     CornerRadius="10"
-                    BackgroundColor="LightGreen"/>
+                    BackgroundColor="#72f763">
+                    <Button.GestureRecognizers>
+                        <PointerGestureRecognizer PointerEntered="OnSavePointerEntered"
+                         PointerExited="OnSavePointerExited" />
+                    </Button.GestureRecognizers>
+            </Button>
             <Button x:Name="CancelTODO"
                     Text="Cancel"
                     Clicked="CancelTODOClicked"
                     HorizontalOptions="Fill"
                     SemanticProperties.Hint="Cancel"
                     CornerRadius="10"
-                    BackgroundColor="#fc584c"/>
+                    BackgroundColor="#fc584c">
+                <Button.GestureRecognizers>
+                    <PointerGestureRecognizer PointerEntered="OnCancelPointerEntered" 
+                                              PointerExited="OnCancelPointerExited"/>
+                </Button.GestureRecognizers>
+                
+            </Button>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </toolkit:Popup>
